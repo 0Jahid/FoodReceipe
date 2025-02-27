@@ -1,9 +1,11 @@
 plugins {
-    id("com.android.application")  // Do not repeat in the project-level file
-    id("org.jetbrains.kotlin.android")
+
     id("kotlin-kapt")
-    id("androidx.navigation.safeargs.kotlin")
+
     id("com.google.dagger.hilt.android")
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
+    id ("androidx.navigation.safeargs.kotlin")
 }
 
 
@@ -19,6 +21,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -102,14 +107,14 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
     // Image Loading (Coil Latest Stable)
-    implementation("io.coil-kt:coil:2.6.0")
+    implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.1.0")
 
     // Gson (Latest Stable)
     implementation("com.google.code.gson:gson:2.10.1")
 
     // Shimmer (Facebook Shimmer)
     implementation("com.facebook.shimmer:shimmer:0.5.0")
-
     // Jsoup (Latest Stable)
     implementation("org.jsoup:jsoup:1.17.2")
 // Enable Hilt annotation processing
