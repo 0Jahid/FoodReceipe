@@ -3,14 +3,14 @@
     <item
         android:id="@+id/receipeFragment"
         android:icon="@drawable/receipe_menu_24"
-        android:title="@string/receipe" />
+        android:title="@string/recipe" />
     <item
         android:id="@+id/saveFragment"
-        android:icon="@drawable/save_menu_24"
+        android:icon="@drawable/bookmark_24"
         android:title="@string/saved" />
     <item
         android:id="@+id/foodTipsFragment"
-        android:icon="@drawable/tips_menu_24"
+        android:icon="@drawable/baseline_tips_and_updates_24"
         android:title="@string/tips" />
 
 </menu>

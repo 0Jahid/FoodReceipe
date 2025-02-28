@@ -23,9 +23,9 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding =true
+        dataBinding =true
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -115,6 +115,7 @@ dependencies {
 
     // Shimmer (Facebook Shimmer)
     implementation("com.facebook.shimmer:shimmer:0.5.0")
+//    implementation ("com.github.sharish:ShimmerRecyclerView:v1.3")
     // Jsoup (Latest Stable)
     implementation("org.jsoup:jsoup:1.17.2")
 // Enable Hilt annotation processing
