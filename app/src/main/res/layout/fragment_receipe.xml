@@ -52,14 +52,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shimmerFrameLayout"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:alpha=".5"
-        android:text="No Internet Connection"
+        android:text="@string/no_internet_connection"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
