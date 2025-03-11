@@ -1,9 +1,13 @@
-package com.jahid.foodreceipe
+package com.jahid.foodreceipe.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.jahid.foodreceipe.R
+import com.jahid.foodreceipe.ui.fragment.recipes.ReceipeFragment
+import com.jahid.foodreceipe.ui.fragment.saved.SaveFragment
+import com.jahid.foodreceipe.ui.fragment.tips.TipsFragment
 import com.jahid.foodreceipe.databinding.ActivityMainBinding
 
 
