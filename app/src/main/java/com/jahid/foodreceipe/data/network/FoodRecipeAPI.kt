@@ -1,4 +1,4 @@
-package com.jahid.foodreceipe
+package com.jahid.foodreceipe.data.network
 
 import com.jahid.foodreceipe.models.FoodRecipe
 import retrofit2.Response

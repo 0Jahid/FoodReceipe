@@ -1,7 +1,6 @@
 plugins {
 
     id("kotlin-kapt")
-
     id("com.google.dagger.hilt.android")
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
@@ -51,20 +50,21 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Hilt Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.51")
-    kapt("com.google.dagger:hilt-android-compiler:2.51")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     // Jetpack Navigation Component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.9")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     // Coordinator Layout
-    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.3.0")
 
     // Material Components (Latest Stable)
     implementation("com.google.android.material:material:1.11.0")
@@ -83,19 +83,17 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.0")
 
     // RecyclerView
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
 
     // Retrofit (Latest Stable)
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // Dagger Hilt (Latest Stable)
     implementation("com.google.dagger:hilt-android:2.51")
     kapt("com.google.dagger:hilt-android-compiler:2.51")
 
-    // AndroidX Hilt ViewModel (Deprecated: Use Hilt directly)
-    // implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03") // REMOVE
-    kapt("androidx.hilt:hilt-compiler:1.1.0")
+    kapt(libs.androidx.hilt.compiler)
 
     // Kotlin Coroutines (Latest Stable)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
@@ -107,17 +105,17 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
     // Image Loading (Coil Latest Stable)
-    implementation("io.coil-kt.coil3:coil-compose:3.1.0")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.1.0")
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     // Gson (Latest Stable)
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.gson)
 
     // Shimmer (Facebook Shimmer)
-    implementation("com.facebook.shimmer:shimmer:0.5.0")
+    implementation(libs.shimmer)
 //    implementation ("com.github.sharish:ShimmerRecyclerView:v1.3")
     // Jsoup (Latest Stable)
-    implementation("org.jsoup:jsoup:1.17.2")
+    implementation(libs.jsoup)
 // Enable Hilt annotation processing
 
 

@@ -1,4 +1,4 @@
-package com.jahid.foodreceipe
+package com.jahid.foodreceipe.util
 
 class Constants {
 
