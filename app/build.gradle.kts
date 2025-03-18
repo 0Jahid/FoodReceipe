@@ -1,9 +1,9 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android") version "2.1.10"// Pin to a stable version
+    id("com.android.application")  // Removed version and apply false; version managed in root
+    id("org.jetbrains.kotlin.android")  // Same as above
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")  // Same as above
     id("androidx.navigation.safeargs.kotlin")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -16,15 +16,13 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        // Optional: compose = true  // Uncomment if using Jetpack Compose
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,40 +31,40 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {  // Added debug configuration
+            isDebuggable = true
+            isMinifyEnabled = false
+        }
     }
-
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "11"
     }
 }
 
 dependencies {
-    // Existing dependencies...
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    implementation(libs.material)  // Updated to 1.12.0 from libs.versions.toml
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Hilt Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.51")
-    kapt("com.google.dagger:hilt-android-compiler:2.51")
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
-    // Navigation Component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.9")  // Matches libs.versions.toml
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.9")
 
     // Coordinator Layout
-    implementation("androidx.coordinatorlayout:coordinatorlayout:1.3.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
@@ -78,25 +76,24 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.0")
 
     // RecyclerView
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-    // Kotlin Standard Library and Coroutines (updated to match 2.1.10)
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0") // Latest as of March 2025
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
-    // Image Loading (Coil)
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.okhttp)
+    // Coil
+    implementation(libs.coil.compose)  // Updated to 3.1.0 from libs.versions.toml
+    implementation(libs.coil.network.okhttp)  // Matches coilCompose version
 
     // Gson
     implementation(libs.gson)
@@ -106,9 +103,6 @@ dependencies {
 
     // Jsoup
     implementation(libs.jsoup)
-
-    // Explicitly add kotlinx-metadata-jvm for metadata 2.1.0 support
-    implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
 }
 
 kapt {
